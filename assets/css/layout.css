@@ -128,7 +128,7 @@
   position: relative;
   isolation: isolate;
   max-width: none;
-  min-height: 440px;
+  min-height: 550px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -182,7 +182,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-white);
-  font-size: 0.85rem;
+  font-size: 1.84rem;
 }
 
 /* ============================================================================
