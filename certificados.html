@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados - VII Semana de Psicologia</title>
+    <link rel="stylesheet" href="assets/css/submissao.css">
+    <style>
+        .cert-card {
+            max-width: 680px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        .status-badge {
+            display: inline-block;
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .notice-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1b4965;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 25px 0;
+        }
+        .notice-box h4 {
+            margin-top: 0;
+            color: #1b4965;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .notice-list {
+            margin: 12px 0 0 20px;
+            padding: 0;
+        }
+        .notice-list li {
+            margin-bottom: 10px;
+            color: #495057;
+            line-height: 1.5;
+        }
+        .search-placeholder {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 6px;
+            opacity: 0.75;
+        }
+        .form-row-disabled {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .form-row-disabled input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: #ffffff;
+            cursor: not-allowed;
+        }
+        .btn-disabled {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: not-allowed;
+            font-weight: 600;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 25px;
+            color: #1b4965;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn-back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="cert-card">
+            <span class="status-badge">⏳ Emissão Indisponível</span>
+            <h2>Portal de Certificados</h2>
+            <p>Este é o canal oficial para consulta e validação dos certificados da <strong>VII Semana de Psicologia</strong>.</p>
+
+            <div class="notice-box">
+                <h4>📌 Orientações sobre a Emissão:</h4>
+                <ul class="notice-list">
+                    <li><strong>Liberação dos Documentos:</strong> Os certificados estarão disponíveis para download nesta mesma página <u>exclusivamente após o término oficial de todas as atividades do evento</u>.</li>
+                    <li><strong>Requisito Prévio de Inscrição:</strong> Apenas participantes devidamente inscritos <u>antes da data de início do evento</u> terão seus certificados gerados. Inscrições posteriores ou pendentes não darão direito à certificação.</li>
+                    <li><strong>Validação de Presença:</strong> Certifique-se de assinar as listas de presença durante as atividades para garantir o cômputo da carga horária.</li>
+                </ul>
+            </div>
+
+            <div class="search-placeholder">
+                <label for="cpf-search" style="font-weight: bold; color: #495057;">Consultar Certificado (Bloqueado):</label>
+                <div class="form-row-disabled">
+                    <input type="text" id="cpf-search" placeholder="Informe seu CPF para buscar..." disabled>
+                    <button type="button" class="btn-disabled" disabled>Buscar</button>
+                </div>
+                <small style="color: #6c757d; display: block; margin-top: 8px;">A busca por CPF será habilitada assim que a comissão organizadora concluir o evento.</small>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="index.html" class="btn-back">← Voltar para a Página Inicial</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
