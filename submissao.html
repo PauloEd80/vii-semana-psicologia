@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VII Semana de Psicologia - Submissão de Trabalhos</title>
+    <link rel="stylesheet" href="assets/css/submissao.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <h1 class="logo">VII Semana de Psicologia - UP</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="submissao.html" class="active">Submissão</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro-section">
+            <h2>Submissão de Trabalhos Acadêmicos</h2>
+            <p>Envie seu trabalho no formato PDF (máximo 10 MB). Certifique-se de remover qualquer identificação dos autores no corpo do texto para garantir o processo de avaliação cega por pares.</p>
+        </section>
+
+        <form id="form-submissao" class="form-card">
+            <div class="form-group">
+                <label for="titulo">Título do Trabalho *</label>
+                <input type="text" id="titulo" name="titulo" required placeholder="Digite o título do trabalho">
+            </div>
+
+            <div class="form-group">
+                <label for="eixo">Eixo Temático *</label>
+                <select id="eixo" name="eixo" required>
+                    <option value="">Selecione o eixo...</option>
+                    <option value="clinica">Psicologia Clínica e Saúde Mental</option>
+                    <option value="educacional">Psicologia Escolar e Educacional</option>
+                    <option value="social">Psicologia Social e Comunidade</option>
+                    <option value="trabalho">Psicologia Organizacional e do Trabalho</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="resumo">Resumo (Máximo 300 palavras) *</label>
+                <textarea id="resumo" name="resumo" rows="6" required placeholder="Cole o texto do resumo..."></textarea>
+                <div class="word-counter"><span id="contador-palavras">0</span> / 300 palavras</div>
+            </div>
+
+            <div class="form-section">
+                <h3>Gerenciamento de Coautores</h3>
+                <div id="lista-coautores"></div>
+                <button type="button" id="btn-add-coautor" class="btn btn-secondary">+ Adicionar Coautor</button>
+            </div>
+
+            <div class="form-group">
+                <label>Arquivo do Trabalho (PDF sem autoria, max 10MB) *</label>
+                <div id="upload-area" class="upload-area">
+                    <p>Arraste e solte o arquivo PDF aqui ou <span class="browse-text">clique para navegar</span></p>
+                    <input type="file" id="arquivo" name="arquivo" accept=".pdf" class="file-input" required>
+                    <div id="file-info" class="file-info"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Enviar Submissão</button>
+        </form>
+    </main>
+
+    <div id="modal-protocolo" class="modal">
+        <div class="modal-content">
+            <h3>Submissão Concluída!</h3>
+            <p>Seu trabalho foi submetido com sucesso e encaminhado à comissão avaliadora.</p>
+            <p class="protocolo-highlight">Protocolo: <strong id="numero-protocolo">---</strong></p>
+            <button id="btn-fechar-modal" class="btn btn-primary">Fechar</button>
+        </div>
+    </div>
+
+    <script src="assets/js/submissao.js"></script>
+</body>
+</html>
