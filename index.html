@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VII Semana de Psicologia | Universidade Positivo Londrina</title>
+  <meta name="description" content="VII Semana de Psicologia da Universidade Positivo Londrina - Psicologia e seu projeto ético político: história e enfrentamentos contemporâneos. 25 a 28 de agosto de 2026.">
+  <meta name="theme-color" content="#0b2149">
+
+  <!-- Open Graph (compartilhamento em redes sociais) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="VII Semana de Psicologia — Universidade Positivo Londrina">
+  <meta property="og:description" content="Psicologia e seu projeto ético-político: história e enfrentamentos contemporâneos. 25 a 28 de agosto de 2026.">
+  <meta property="og:image" content="assets/img/hero-card-background.jpg">
+
+  <link rel="icon" href="data:,">
+
+  <!-- Otimização de performance: hero-card-background.jpg tende a ser o LCP
+       (Largest Contentful Paint) da página, então priorizamos seu download -->
+  <link rel="preload" as="image" href="assets/img/hero-card-background.jpg" fetchpriority="high">
+
+  <!-- Fontes do Google removidas de propósito: o projeto usa só a stack de
+       fontes do sistema definida em --font-base (assets/css/variables.css),
+       sem depender de CDN externo (ver agents.md). -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a href="#topo" class="logo" aria-label="Página inicial VII Semana de Psicologia">
+        <span class="logo-mark">UP</span>
+        <span class="logo-text">VII Semana de Psicologia<br><small>Universidade Positivo Londrina</small></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menu de navegação">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="navMenu" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#topo" aria-current="page">Página Inicial</a></li>
+          <li><a href="#programacao">Programação</a></li>
+          <li><a href="palestrantes.html">Palestrantes</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ul>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- Tipografia gigante decorativa atrás do card (some no mobile) -->
+      <div class="hero-decor" aria-hidden="true">
+        <span>Psicologia</span>
+      </div>
+
+      <div class="container hero-inner">
+        <p class="eyebrow">Universidade Positivo &middot; Londrina-PR</p>
+
+        <!-- Card com a imagem do evento. Fundo: assets/img/hero-card-background.jpg
+             (placeholder atual — ver assets/img/README.md pra trocar) -->
+        <div class="hero-card">
+          <h1 id="hero-title">VII Semana de Psicologia</h1>
+          <p class="hero-subtitle">Psicologia e seu projeto ético-político: história e enfrentamentos contemporâneos</p>
+
+          <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-label="Contagem regressiva para o evento">
+            <div class="countdown-item">
+              <span class="countdown-number" id="cd-days">00</span>
+              <span class="countdown-label">Dias</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="cd-hours">00</span>
+              <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="cd-minutes">00</span>
+              <span class="countdown-label">Minutos</span>
+            </div>
+          </div>
+
+          <p class="hero-meta">Universidade Positivo &middot; Londrina</p>
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYPd_jKoaGAuBqXBt06zOMqj_H7BDKUZ-8k9Z2Eb26aJi2gw/viewform?usp=send_form" class="btn btn-cta">Faça sua inscrição</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REALIZAÇÃO ===== -->
+    <!-- Logo combinado real (traz "Realização:" já desenhado dentro da
+         imagem) — substitui os badges de texto/placeholder de antes. -->
+    <section class="realizacao" aria-label="Realização">
+      <div class="container">
+        <img
+          src="assets/img/logo-realizacao.png"
+          alt="Realização: Universidade Positivo, Centro de Pesquisa Positivo, Araucária e ecohub"
+          class="realizacao-logos"
+        >
+      </div>
+    </section>
+
+    <!-- ===== SOBRE O EVENTO ===== -->
+    <section class="section sobre" id="sobre" aria-labelledby="sobre-title">
+      <div class="container">
+        <h2 id="sobre-title">Sobre o Evento</h2>
+        <p class="section-intro">Psicologia na contemporaneidade: enfrentamentos, desafios éticos e demandas emergentes.</p>
+
+        <p>Para a promoção da VII Semana de Psicologia, o Centro de Pesquisa da Universidade Positivo (CPUP), em parceria com a Universidade Positivo - Campus Londrina, definiu como tema: <em>&ldquo;Psicologia e seu projeto ético-político: história e enfrentamentos contemporâneos&rdquo;</em>. Tal escolha fundamentou-se nas demandas de uma sociedade em constante transformação, que convoca a Psicologia a um posicionamento ético.</p>
+
+        <p>Entendemos que nossa profissão enfrenta desafios de diversas ordens, especialmente ao assumirmos as diretrizes da Declaração Universal dos Direitos Humanos como pilares de nosso Código de Ética Profissional. Portanto, é pauta para nossa reflexão a história do projeto ético-político da psicologia e seus desdobramentos para a formação e a prática profissional, considerando sua aproximação com uma sociedade marcada pela desigualdade social, pelo racismo estrutural à indígenas e à população negra, pelo preconceito à população LGBTQIAPN+, pela violência e por práticas machistas.</p>
+
+        <p>As devidas reflexões nos permitem um refinamento de nossas posições políticas e profissionais e passam pela afirmação de nossos compromissos éticos políticos na construção de uma sociedade mais justa e solidária; uma sociedade mais inclusiva e democrática.</p>
+
+        <div class="highlights-grid">
+          <a href="palestrantes.html" class="highlight-card">
+            <span class="highlight-icon" aria-hidden="true">🎤</span>
+            <h3>Palestras</h3>
+          </a>
+          <div class="highlight-card">
+            <a href="palestrantes.html">
+              <span class="highlight-icon" aria-hidden="true">🛠️</span>
+              <h3>Oficinas e Debates</h3>
+            </a>
+          </div>
+          <div class="highlight-card">
+            <a href="palestrantes.html">
+              <span class="highlight-icon" aria-hidden="true">🗣️</span>
+              <h3>Mesas-Redondas</h3>
+            </a>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-icon" aria-hidden="true">📄</span>
+            <h3>Apresentação de Trabalhos</h3>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-icon" aria-hidden="true">🎓</span>
+            <h3>Certificado</h3>
+          </div>
+        </div>
+
+        <div class="vagas-box">
+          <div class="vagas-text">
+            <p class="vagas-title">Garanta sua Certificação!</p>
+            <p>Faça sua inscrição pelo QR code, ou pelo link disponível no topo da página. Venha prestigiar o evento e contribuir para o debate!</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYPd_jKoaGAuBqXBt06zOMqj_H7BDKUZ-8k9Z2Eb26aJi2gw/viewform?usp=send_form" class="btn btn-cta">Faça sua inscrição</a>
+          </div>
+          <img
+            src="assets/img/qrcode-inscricao.png"
+            alt="QR Code para inscrição na VII Semana de Psicologia"
+            class="qrcode-placeholder"
+            width="140"
+            height="140"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROGRAMAÇÃO ===== -->
+    <section class="section programacao" id="programacao" aria-labelledby="programacao-title">
+      <div class="container">
+        <h2 id="programacao-title">Programação</h2>
+        <p class="section-intro">Confira o cronograma completo dos quatro dias de evento.</p>
+
+        <div class="schedule">
+
+          <article class="schedule-day">
+            <h3 class="schedule-date">DIA 25.08.2026</h3>
+            <ul class="schedule-list">
+              <li><span class="time">18h00</span><span class="desc">Credenciamento</span></li>
+              <li><span class="time">19h30</span><span class="desc">Composição da Mesa de Abertura</span></li>
+              <li><span class="time">19h45</span><span class="desc">Atividade Cultural: Instituto ADAMA</span></li>
+              <li><span class="time">20h00</span><span class="desc">Conferência de Abertura: Projeto ético-político da psicologia: história e contemporaneidade &mdash; <strong>Dr. Pedro Paulo Gastalho de Bicalho</strong></span></li>
+            </ul>
+          </article>
+
+          <article class="schedule-day">
+            <h3 class="schedule-date">DIA 26.08.2026</h3>
+            <ul class="schedule-list">
+              <li><span class="time">09h00 &agrave;s 11h30</span><span class="desc">Oficina: Psicofarmacologia e psicologia: interfaces &mdash; <strong>Dra. Natália Kimie Matsubara</strong></span></li>
+              <li><span class="time">18h30 &agrave;s 19h30</span><span class="desc">Apresentação de Pôsteres</span></li>
+              <li><span class="time">19h30 &agrave;s 21h30</span><span class="desc">Mesa Redonda: RAPS e o compromisso ético-político da psicologia &mdash; <strong>Dr. Altieres Edemar Frei</strong> e <strong>Dr. Roberth Miniguine Tavanti</strong></span></li>
+            </ul>
+          </article>
+
+          <article class="schedule-day">
+            <h3 class="schedule-date">DIA 27.08.2026</h3>
+            <ul class="schedule-list">
+              <li><span class="time">09h00 &agrave;s 11h30</span><span class="desc">Oficina: Avaliação psicológica e compromisso ético-político da Psicologia &mdash; <strong>Natalia Mendes Ferrer da Rosa</strong></span></li>
+              <li><span class="time">18h30 &agrave;s 19h30</span><span class="desc">Apresentação de Pôsteres</span></li>
+              <li><span class="time">19h30 &agrave;s 21h30</span><span class="desc">Mesa Redonda: Psicologia social e comunitária: Projeto Ciranda e seus desdobramentos para a cidadania &mdash; <strong>Dra. Alejandra Astrid Leon Cedeño</strong> e <strong>Bruna Jaqueline de Moura Lima</strong></span></li>
+            </ul>
+          </article>
+
+          <article class="schedule-day">
+            <h3 class="schedule-date">DIA 28.08.2026</h3>
+            <ul class="schedule-list">
+              <li><span class="time">09h00 &agrave;s 11h30</span><span class="desc">Oficina: Psicologia analítica de Jung: perspectivas de intervenção &mdash; <strong>Aloan Rener Julião</strong></span></li>
+              <li><span class="time">18h30 &agrave;s 19h30</span><span class="desc">Apresentação de Pôsteres</span></li>
+              <li><span class="time">19h30 &agrave;s 21h30</span><span class="desc">Conferência de Encerramento: Psicologia: projeto ético-político e a formação da(o) psicólogo(a) &mdash; <strong>Dra. Marilene Proença</strong></span></li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PALESTRANTES / COMISSÃO ORGANIZADORA ===== -->
+    <section class="section comissao" id="comissao" aria-labelledby="comissao-title">
+      <div class="container">
+        <h2 id="comissao-title">Comissão Organizadora</h2>
+
+        <div class="comissao-grid">
+          <div class="comissao-col">
+            <h3>Docentes</h3>
+            <ul class="comissao-list">
+              <li>Profa. Dra. Ana Cristina Amado</li>
+              <li>Profa. Ms. Caroline Tiemi Itiyama</li>
+              <li>Prof. Ms. Cândido Rocha Flores Júnior</li>
+              <li>Profa. Dra. Cintia Helena dos Santos</li>
+            </ul>
+          </div>
+          <div class="comissao-col">
+            <h3>Discentes</h3>
+            <ul class="comissao-list">
+              <li>Gilda S. Antonino</li>
+              <li>Isadora Mendes Oliveira</li>
+              <li>Kaik Hideki Ono</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">Perguntas Frequentes</h2>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Como faço minha inscrição no evento?</summary>
+            <p>As inscrições são realizadas através do link disponibilizado no botão &ldquo;Faça sua inscrição&rdquo;, presente no topo da página. As vagas são limitadas conforme a capacidade dos auditórios e oficinas.</p>
+          </details>
+          <details class="faq-item">
+            <summary>O evento emite certificado?</summary>
+            <p>Sim. Todos os participantes devidamente inscritos e presentes receberão certificado de participação da VII Semana de Psicologia da Universidade Positivo.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Qual o local do evento?</summary>
+            <p>O evento será realizado no campus da Universidade Positivo, em Londrina-PR, entre os dias 25 e 28 de agosto de 2026.</p>
+          </details>
+          <details class="faq-item">
+            <summary>É necessário ser estudante de Psicologia para participar?</summary>
+            <p>Não. O evento é aberto à comunidade acadêmica em geral, profissionais da área e demais interessados no tema.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 VII Semana de Psicologia &mdash; Universidade Positivo Londrina. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/countdown.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/favorite.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+/* Componentes reutilizáveis: logo, botões, contador, cards, cronograma, faq */
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-blue-900);
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--color-blue-700), var(--color-blue-900));
+  color: var(--color-white);
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.logo-text small {
+  font-weight: 500;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-cta {
+  background: var(--color-maroon-600);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  font-size: 1.5rem;
+  height: 70px;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+  background: var(--color-maroon-700);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border-color: var(--color-blue-700);
+  color: var(--color-blue-700);
+  background: transparent;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--color-blue-700);
+  color: var(--color-white);
+}
+
+.btn-ghost {
+  background: var(--color-blue-50);
+  color: var(--color-blue-900);
+}
+
+.btn-ghost[aria-pressed="true"] {
+  background: var(--color-orange-500);
+  color: var(--color-white);
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  background: var(--color-blue-100);
+}
+
+.btn-ghost[aria-pressed="true"]:hover {
+  background: var(--color-orange-600);
+}
+
+/* Countdown
+   Números "soltos" (sem card/borda), grandes, alinhados à esquerda — como
+   no anexo de referência. Antes cada número vinha dentro de uma caixinha
+   com fundo/borda; removido de propósito. */
+.countdown {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.countdown-item {
+  min-width: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  backdrop-filter: none;
+  text-align: left;
+}
+
+.countdown-number {
+  display: block;
+  font-size: 3.25rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.countdown-label {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-blue-100);
+}
+
+/* Highlights grid */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem;
+  margin: 2.5rem 0;
+}
+
+.highlight-card {
+  display: block;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-blue-100);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.highlight-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Vagas box */
+.vagas-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(120deg, var(--color-blue-900), var(--color-blue-700));
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.vagas-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-orange-400);
+  margin-bottom: 0.5rem;
+}
+
+.vagas-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.vagas-text p:not(.vagas-title) {
+  color: var(--color-blue-100);
+}
+
+.qrcode-placeholder {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  object-fit: cover; /* a imagem real (777×771) não é perfeitamente quadrada */
+}
+
+/* Schedule / Programação */
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.schedule-day {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.schedule-date {
+  color: var(--color-orange-600);
+  border-bottom: 2px solid var(--color-blue-100);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.schedule-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.schedule-list li:last-child {
+  border-bottom: none;
+}
+
+.schedule-list .time {
+  font-weight: 700;
+  color: var(--color-blue-800);
+  font-size: 0.85rem;
+}
+
+.schedule-list .desc {
+  color: var(--color-text);
+  font-size: 0.92rem;
+}
+
+/* Comissão organizadora */
+.comissao-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.comissao-col {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+
+.comissao-col h3 {
+  color: var(--color-blue-800);
+  border-bottom: 2px solid var(--color-orange-500);
+  display: inline-block;
+  padding-bottom: 0.35rem;
+}
+
+.comissao-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.comissao-list li:last-child {
+  border-bottom: none;
+}
+
+/* FAQ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.5rem;
+}
+
+.faq-item summary {
+  font-weight: 700;
+  color: var(--color-blue-900);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  color: var(--color-orange-500);
+  margin-left: 1rem;
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.faq-item p {
+  margin-top: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Speaker card — página palestrantes.html
+   Foto é um placeholder de iniciais (círculo com gradiente) até
+   termos as fotos reais de cada um; ver assets/img/README.md. */
+.speakers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.speaker-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.speaker-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.speaker-card__photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-blue-700), var(--color-blue-900));
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.speaker-card__badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-orange-600);
+  background: var(--color-blue-50);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.speaker-card__name {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.speaker-card__activity {
+  font-weight: 600;
+  color: var(--color-blue-700);
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+.speaker-card__bio {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+

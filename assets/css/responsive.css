@@ -1,0 +1,108 @@
+/* Design responsivo Mobile-First: ajustes progressivos por breakpoint */
+
+/* Mobile (padrão): navegação colapsada em menu */
+.main-nav {
+  position: fixed;
+  inset: var(--header-height) 0 0 0;
+  background: var(--color-white);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem 1.5rem;
+  transform: translateX(100%);
+  transition: transform var(--transition-base);
+  overflow-y: auto;
+}
+
+.main-nav.is-open {
+  transform: translateX(0);
+}
+
+.main-nav ul {
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.nav-actions {
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+}
+
+.nav-toggle {
+  display: flex;
+}
+
+.vagas-box {
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .hero {
+    padding: 4.5rem 0 5rem;
+  }
+
+  .hero-decor {
+    display: block;
+  }
+
+  .vagas-box {
+    text-align: left;
+  }
+
+  .speakers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop and up: navegação horizontal padrão */
+@media (min-width: 1024px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    position: static;
+    inset: auto;
+    transform: none;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .nav-actions {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+/* Small mobile fine-tuning */
+@media (max-width: 420px) {
+  .countdown {
+    gap: 1.25rem;
+  }
+
+  .countdown-number {
+    font-size: 2.35rem;
+  }
+
+  .hero-card {
+    padding: 1.75rem;
+  }
+
+  .logo-text {
+    font-size: 0.8rem;
+  }
+}

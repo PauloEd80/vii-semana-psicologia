@@ -1,0 +1,282 @@
+/* Estruturas de layout: header, hero, seções e footer */
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-height);
+  gap: 1rem;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.main-nav ul a {
+  color: var(--color-blue-900);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.main-nav ul a:hover,
+.main-nav ul a:focus-visible {
+  border-color: var(--color-orange-500);
+  color: var(--color-blue-700);
+}
+
+.main-nav ul a[aria-current="page"] {
+  border-color: var(--color-maroon-600);
+  color: var(--color-maroon-600);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+}
+
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: var(--color-blue-900);
+  border-radius: 2px;
+}
+
+/* ============================================================================
+   HERO
+   Reformulado para seguir a referência do cliente: fundo claro (não mais
+   faixa escura full-bleed), um "hero-card" flutuando por cima — cantos
+   arredondados, sombra, imagem própria — com uma palavra gigante
+   decorativa atrás. Texto alinhado à esquerda (antes era centralizado).
+   ============================================================================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--color-lavender-50) 0%, var(--color-bg) 65%);
+  padding: 3rem 0 3.5rem;
+  text-align: left;
+}
+
+/* Tipografia gigante decorativa atrás do card (o nome do evento, bem
+   ampliado e bem claro). Escondida no mobile por padrão — ver
+   responsive.css — porque em telas pequenas ela brigaria com o conteúdo. */
+.hero-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.hero-decor span {
+  position: absolute;
+  top: -0.28em;
+  right: -0.03em;
+  font-size: clamp(6rem, 15vw, 13rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--color-blue-100);
+  white-space: nowrap;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 1rem; /* era 0.8rem — aumentado a pedido (Tarefa 1) */
+  font-weight: 700;
+  color: var(--color-orange-400);
+  margin-bottom: 1rem;
+}
+
+/* Card com a imagem do evento. A imagem é assets/img/hero-card-background.jpg
+   — troque esse arquivo (mesmo nome) pela arte real; ver
+   assets/img/README.md para o passo a passo. */
+.hero-card {
+  position: relative;
+  isolation: isolate;
+  max-width: none; /* era 900px — agora preenche o .container (Tarefa 2, Opção A) */
+  min-height: 550px; /* era 440px — proporcional à nova largura */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  color: var(--color-white);
+  padding: 2.75rem;
+  text-align: left;
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("../img/hero-card-background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Degradê por cima da imagem: garante legibilidade do texto branco
+   independente da foto usada, e mantém a identidade azul institucional. */
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(11, 33, 73, 0.82) 0%, rgba(18, 48, 104, 0.55) 55%, rgba(11, 33, 73, 0.22) 100%);
+}
+
+.hero-card h1 {
+  color: var(--color-white);
+  letter-spacing: 0.01em;
+  max-width: 480px;
+  margin: 0;
+}
+
+.hero-subtitle {
+  max-width: 42ch;
+  font-size: 0.95rem;
+  color: var(--color-blue-100);
+  font-weight: 500;
+  margin: -0.75rem 0 0;
+}
+
+.hero-meta {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-size: 0.85rem;
+}
+
+/* ============================================================================
+   REALIZAÇÃO
+   Logo único combinado (Universidade Positivo, Centro de Pesquisa Positivo,
+   Araucária, ecohub etc.), logo abaixo do Hero. A própria imagem já traz o
+   rótulo "Realização:" desenhado — por isso não há mais um <span> de texto
+   separado para ele (existia uma versão anterior com badges de texto
+   individuais; substituída quando o logo real ficou disponível).
+   ============================================================================ */
+.realizacao {
+  padding: 1.75rem 0;
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.realizacao-logos {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 480px;
+}
+
+/* Sections */
+.section {
+  padding: 5rem 0;
+}
+
+.section:nth-of-type(even) {
+  background: var(--color-bg-alt);
+}
+
+.section-intro {
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.sobre p {
+  max-width: 880px;
+}
+
+/* ============================================================================
+   PÁGINAS SECUNDÁRIAS (ex.: palestrantes.html)
+   Banner mais simples que o Hero da home — mesmo degradê claro, sem card,
+   sem contador, sem tipografia decorativa gigante.
+   ============================================================================ */
+.page-banner {
+  background: linear-gradient(160deg, var(--color-lavender-50) 0%, var(--color-bg) 65%);
+  padding: 3rem 0 2.5rem;
+  text-align: left;
+}
+
+.page-banner__subtitle {
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.speakers-group-title {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-border);
+  color: var(--color-blue-800);
+}
+
+.speakers-group-title:first-of-type {
+  margin-top: 0;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--color-blue-900);
+  color: var(--color-blue-100);
+  padding: 3rem 0 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: rgba(231, 237, 249, 0.7);
+  margin: 0;
+}

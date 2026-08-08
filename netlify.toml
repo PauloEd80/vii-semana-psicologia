@@ -1,0 +1,60 @@
+# ============================================================================
+# netlify.toml
+# VII Semana de Psicologia — Universidade Positivo Londrina
+# ============================================================================
+# Este arquivo substitui a versão anterior, que continha:
+#   - publish = "/opt/build/repo" (caminho interno do container de build da
+#     própria Netlify — não é um valor válido para versionar no repositório;
+#     parece ter sido exportado/baixado da interface da Netlify em vez de
+#     escrito à mão).
+#   - Chaves como headersOrigin / publishOrigin, que também são
+#     características de uma configuração "resolvida" pela Netlify, não de
+#     um netlify.toml de projeto.
+# O deploy anterior funcionou porque a Netlify provavelmente ignorou esses
+# valores e caiu no comportamento padrão (raiz do repositório) — mas não é
+# uma configuração confiável para manter.
+# ============================================================================
+
+[build]
+  publish = "."
+
+# ---------------------------------------------------------------------------
+# Headers de segurança — aplicados a todas as rotas.
+# CSP rígido: o projeto não usa nenhum CDN externo (as fontes do Google
+# foram removidas do index.html) nem estilo/script inline.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+
+# ---------------------------------------------------------------------------
+# Cache de /assets/*
+# Sem "immutable" de 1 ano de propósito: os arquivos (variables.css,
+# countdown.js etc.) mantêm nome fixo — não há hash de conteúdo no nome.
+# Um cache imutável de longa duração faria o navegador de quem já visitou
+# o site ignorar correções/atualizações desses arquivos por até um ano.
+# max-age=3600 + must-revalidate ainda evita redownload a cada navegação
+# interna, mas garante que mudanças apareçam no mesmo dia.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# HTML nunca em cache agressivo — garante que atualizações de conteúdo
+# (programação, palestrantes etc.) apareçam na próxima visita.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
