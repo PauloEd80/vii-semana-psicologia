@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwruM1BaAbvIpI4ftzYZ6lX5V_NDQ5_mGXPu1fBMhmhtMOQYvcMKiBZ1ZZfGEQH_xoh/exec';
+
     const resumoTextarea = document.getElementById('resumo');
     const contadorPalavras = document.getElementById('contador-palavras');
     const uploadArea = document.getElementById('upload-area');
@@ -11,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const numeroProtocolo = document.getElementById('numero-protocolo');
     const btnFecharModal = document.getElementById('btn-fechar-modal');
 
-    // Contador dinâmico de palavras
+    // Contador dinâmico de palavras do resumo (Limite: 300 palavras)
     resumoTextarea.addEventListener('input', () => {
         const palavras = resumoTextarea.value.trim().split(/\s+/).filter(word => word.length > 0);
         contadorPalavras.textContent = palavras.length;
         contadorPalavras.style.color = palavras.length > 300 ? '#e63946' : '#6c757d';
     });
 
-    // Adição/remoção dinâmica de coautores
+    // Gerenciamento dinâmico de campos de coautores
     btnAddCoautor.addEventListener('click', () => {
         const div = document.createElement('div');
         div.className = 'coautor-row';
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.querySelector('.btn-remover').addEventListener('click', () => div.remove());
     });
 
-    // Drag and Drop e Validação de arquivo PDF (Max 10MB)
+    // Drag-and-drop e validações do arquivo PDF
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         uploadArea.addEventListener(eventName, e => {
             e.preventDefault();
@@ -73,19 +75,67 @@ document.addEventListener('DOMContentLoaded', () => {
         fileInfo.textContent = `Arquivo anexado: ${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
     }
 
-    // Submissão do formulário e geração do protocolo
-    form.addEventListener('submit', e => {
+    // Processamento da submissão e envio para o Google Apps Script
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
         const palavras = resumoTextarea.value.trim().split(/\s+/).filter(w => w.length > 0);
         if (palavras.length > 300) {
             alert('Por favor, reduza o resumo para no máximo 300 palavras.');
             return;
         }
 
-        const protocolo = 'PSI2026-' + Math.floor(100000 + Math.random() * 900000);
-        numeroProtocolo.textContent = protocolo;
-        modal.style.display = 'flex';
+        const arquivo = fileInput.files[0];
+        if (!arquivo) {
+            alert('Selecione um arquivo PDF.');
+            return;
+        }
+
+        const base64 = await convertFileToBase64(arquivo);
+
+        const coautores = [];
+        document.querySelectorAll('.coautor-row').forEach(row => {
+            const inputs = row.querySelectorAll('input');
+            if (inputs[0].value && inputs[1].value) {
+                coautores.push({ nome: inputs[0].value, email: inputs[1].value });
+            }
+        });
+
+        const payload = {
+            titulo: document.getElementById('titulo').value,
+            eixo: document.getElementById('eixo').value,
+            resumo: resumoTextarea.value,
+            coautores: coautores,
+            arquivoBase64: base64.split(',')[1]
+        };
+
+        try {
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (result.sucesso) {
+                numeroProtocolo.textContent = result.protocolo;
+                modal.style.display = 'flex';
+            } else {
+                alert('Falha na submissão: ' + result.mensagem);
+            }
+        } catch (error) {
+            alert('Erro na conexão com o servidor de submissão.');
+        }
     });
+
+    function convertFileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
 
     btnFecharModal.addEventListener('click', () => {
         modal.style.display = 'none';
